@@ -1,0 +1,32 @@
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+    width: 320px;
+    height: 450px;
+}
+
+.team-item .btn-remove-team {
+    display:none;
+}
+
+.team-item:hover .btn-remove-team {
+    display: block;
+}
+
+.team-item .team-content {
+    font-weight: bold;
+}
+.team-item.completed .team-content {
+    color:darkgray;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+#team-list {
+    margin-bottom: 10px;
+}
+
+#btn-remove-all {
+    margin-bottom: 10px;
+}
