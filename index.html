@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <title>Toss-up Chrome Extension</title>
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="lib/angular/angular.js"></script>
+        <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="app/controller.js"></script>
+        <script type="text/javascript" src="app/storage.js"></script>
+    </head>
+    <body ng-controller='Controller'>
+        <div class='container'>
+            <div class='row' id="team-list">
+                <div class='team-item col-md-12' ng-repeat='team in teamList track by page on page on team.id| orderBy: createdAt'
+                        ng-class='{completed: team.completed}'>
+                    <input type='checkbox' ng-model='team.completed' ng-click='toggleCompleted()'/>
+                    <span class='team-content'>{{team.content}}</span>
+                    <a class='btn-remove-team pull-right' ng-click='remove(team)'>
+                        <i class='glyphicon glyphicon-remove'></i></a>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-12'>
+                    <div id='toolbar'>
+                        <a id="btn-remove-all" ng-click='removeAll()'
+                            class='btn btn-small btn-default pull-right'
+                            ng-show="teamList.length > 0">
+                            <i class="glyphicon glyphicon-remove"></i> Clear all
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
